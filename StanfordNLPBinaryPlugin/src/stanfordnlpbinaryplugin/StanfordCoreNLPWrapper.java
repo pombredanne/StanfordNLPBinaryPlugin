@@ -62,6 +62,35 @@ public class StanfordCoreNLPWrapper {
 	}
 
 	/**
+	 * Executes the utility to obtain tokens.
+	 * 
+	 * @param file
+	 *            The file to tokenize
+	 * @return An array of tokens.
+	 */
+	public static String[] runTokenizer(File file) {
+		// Locate our local plugin resources
+		Bundle bundle = Platform.getBundle("StanfordCoreNLPBinaryPlugin");
+		URL utilityURL = bundle.getEntry("lib/StanfordCoreNLPUtility.jar");
+
+		File utilityExec = null;
+		try {
+			utilityExec = new File(FileLocator.resolve(utilityURL).toURI());
+		} catch (URISyntaxException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// Build the command and run it
+		String[] command = new String[] { "java", "-jar",
+				utilityExec.getAbsolutePath(), "tokenize",
+				file.getAbsolutePath() };
+		String results = runCommand(command, null);
+		
+		return results.split("\\r?\\n");
+	}
+
+	/**
 	 * Runs the command in a separate process and returns all of the output
 	 * (excluding stderr) as a single String.
 	 * 
