@@ -25,7 +25,7 @@ public class StanfordCoreNLPWrapper {
 	 * Executes the utility to obtain part of speech results.
 	 * 
 	 * @param file
-	 *            The file to analyze
+	 *            The file to analyze.
 	 * @return A list of the tokens paired with resulting tags.
 	 */
 	public static List<Entry<String, String>> runPartOfSpeechAnalysis(File file) {
@@ -65,7 +65,7 @@ public class StanfordCoreNLPWrapper {
 	 * Executes the utility to obtain tokens.
 	 * 
 	 * @param file
-	 *            The file to tokenize
+	 *            The file to tokenize.
 	 * @return An array of tokens.
 	 */
 	public static String[] runTokenizer(File file) {
@@ -99,7 +99,7 @@ public class StanfordCoreNLPWrapper {
 	 * @param input
 	 *            A string that should be fed to the external command. Null
 	 *            means the command will not receive any input.
-	 * @return The results of running the command (stdout)
+	 * @return The results of running the command (stdout).
 	 */
 	private static String runCommand(String[] command, String input) {
 		Runtime rt = Runtime.getRuntime();
