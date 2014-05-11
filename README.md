@@ -1,4 +1,4 @@
 StanfordNLPBinaryPlugin
 =======================
 
-Executes the StanfordBinaryWrapper in a separate Java instance to be compatible with differing open source licenses
+Allows Stanford CoreNLP analyses to be used in LinGUIne utilizing the StanfordCoreNLPUtility.
